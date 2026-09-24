@@ -1,0 +1,7 @@
+{
+  "name": "Nước Mắm CRM Thấu Cảm AI",
+  "description": "Nền tảng CRM Thấu cảm và Quản trị Chuỗi Phân phối cho doanh nghiệp Nước Mắm Cốt Nhĩ Hải Hương, tích hợp biểu đồ xu hướng doanh thu Recharts và xuất báo cáo PDF/Excel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

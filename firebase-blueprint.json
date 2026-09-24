@@ -1,0 +1,192 @@
+{
+  "entities": {
+    "Customer": {
+      "title": "Customer",
+      "description": "Hồ sơ khách hàng, thấu cảm khẩu vị mắm và phân tích RFM",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "region": { "type": "string" },
+        "type": { "type": "string" },
+        "subType": { "type": "string" },
+        "favoriteSku": { "type": "string" },
+        "favoriteVolume": { "type": "string" },
+        "avgOrderValue": { "type": "number" },
+        "totalSpend": { "type": "number" },
+        "orderCount": { "type": "number" },
+        "lastPurchaseDate": { "type": "string" },
+        "purchaseCycleDays": { "type": "number" },
+        "daysSinceLastPurchase": { "type": "number" },
+        "nextPredictedPurchase": { "type": "string" },
+        "repurchaseProbability": { "type": "string" },
+        "churnRisk": { "type": "string" },
+        "rfmSegment": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "type", "address"]
+    },
+    "StoreNode": {
+      "title": "StoreNode",
+      "description": "Điểm bán trong chuỗi phân phối (Cửa hàng, Đại lý, NPP, Kho, Nhà máy)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "address": { "type": "string" },
+        "province": { "type": "string" },
+        "region": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "phone": { "type": "string" },
+        "revenueMonthly": { "type": "number" },
+        "revenueGrowthPct": { "type": "number" },
+        "totalStockBottles": { "type": "number" },
+        "topSellingSku": { "type": "string" },
+        "slowSellingSku": { "type": "string" },
+        "stockStatus": { "type": "string" },
+        "supplyCycleDays": { "type": "number" },
+        "daysSinceLastRestock": { "type": "number" },
+        "debtAmount": { "type": "number" },
+        "shelfCondition": { "type": "string" }
+      },
+      "required": ["id", "code", "name", "type", "address", "phone"]
+    },
+    "ProductSKU": {
+      "title": "ProductSKU",
+      "description": "Sản phẩm nước mắm cốt nhĩ theo độ đạm và quy cách đóng gói",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sku": { "type": "string" },
+        "name": { "type": "string" },
+        "productLine": { "type": "string" },
+        "nitrogenDegree": { "type": "number" },
+        "capacity": { "type": "string" },
+        "packagingSpec": { "type": "string" },
+        "priceRetail": { "type": "number" },
+        "priceAgency": { "type": "number" },
+        "priceNPP": { "type": "number" },
+        "costPrice": { "type": "number" },
+        "marginPct": { "type": "number" },
+        "monthlySalesBottles": { "type": "number" },
+        "status": { "type": "string" },
+        "description": { "type": "string" },
+        "ingredients": { "type": "string" }
+      },
+      "required": ["id", "sku", "name", "nitrogenDegree", "priceRetail"]
+    },
+    "BatchLot": {
+      "title": "BatchLot",
+      "description": "Lô sản xuất nước mắm ủ chượp truyền thống và truy xuất nguồn gốc",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "batchCode": { "type": "string" },
+        "factoryName": { "type": "string" },
+        "barrelId": { "type": "string" },
+        "fishOrigin": { "type": "string" },
+        "saltOrigin": { "type": "string" },
+        "fermentationStartDate": { "type": "string" },
+        "fermentationDurationMonths": { "type": "number" },
+        "extractionDate": { "type": "string" },
+        "bottlingDate": { "type": "string" },
+        "expiryDate": { "type": "string" },
+        "nitrogenDegreeTested": { "type": "number" },
+        "totalBottlesProduced": { "type": "number" },
+        "distributedBottles": { "type": "number" },
+        "currentWarehouseBottles": { "type": "number" },
+        "qualityCertificateNo": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "batchCode", "barrelId", "fishOrigin", "saltOrigin"]
+    },
+    "OrderRecord": {
+      "title": "OrderRecord",
+      "description": "Đơn hàng phân phối hoặc bán lẻ",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "orderCode": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerType": { "type": "string" },
+        "channel": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "discount": { "type": "number" },
+        "finalAmount": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" },
+        "deliveryAddress": { "type": "string" }
+      },
+      "required": ["id", "orderCode", "customerName", "finalAmount", "status"]
+    },
+    "LeadRecord": {
+      "title": "LeadRecord",
+      "description": "Khách hàng tiềm năng B2B cho kênh phân phối và chuỗi Horeca",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "companyName": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "phone": { "type": "string" },
+        "type": { "type": "string" },
+        "expectedMonthlyBottles": { "type": "number" },
+        "estimatedValue": { "type": "number" },
+        "stage": { "type": "string" },
+        "assignedTo": { "type": "string" },
+        "notes": { "type": "string" },
+        "empathyProfile": { "type": "string" }
+      },
+      "required": ["id", "companyName", "contactPerson", "phone", "stage"]
+    },
+    "StaffMember": {
+      "title": "StaffMember",
+      "description": "Nhân viên kinh doanh, giám sát thị trường và R&D/QC",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "region": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "code", "name", "role", "phone"]
+    }
+  },
+  "firestore": {
+    "/customers/{customerId}": {
+      "schema": "Customer",
+      "description": "Hồ sơ khách hàng B2C, B2B, Horeca và thấu cảm khẩu vị"
+    },
+    "/stores/{storeId}": {
+      "schema": "StoreNode",
+      "description": "Chuỗi điểm bán, đại lý, nhà phân phối và nhà máy"
+    },
+    "/products/{productId}": {
+      "schema": "ProductSKU",
+      "description": "Danh mục sản phẩm nước mắm truyền thống cốt nhĩ"
+    },
+    "/batches/{batchId}": {
+      "schema": "BatchLot",
+      "description": "Lô sản xuất mẻ chượp và truy xuất nguồn gốc"
+    },
+    "/orders/{orderId}": {
+      "schema": "OrderRecord",
+      "description": "Đơn hàng phân phối và bán lẻ"
+    },
+    "/leads/{leadId}": {
+      "schema": "LeadRecord",
+      "description": "Cơ hội khách hàng B2B và pipeline đàm phán"
+    },
+    "/staff/{staffId}": {
+      "schema": "StaffMember",
+      "description": "Đội ngũ nhân sự kinh doanh và kỹ thuật"
+    }
+  }
+}
